@@ -2,8 +2,7 @@ import sys
 
 playerX = "X"
 playerO = "O"
-current_player = playerO
-
+current_player = playerX
 xScore = 0
 oScore = 0
 
@@ -128,10 +127,10 @@ def main():
 		set_options()
 
 		while True:
+			print_board()
+			request_input()
 			detect_win()
 			detect_draw()
 			switch_players()
-			print_board()
-			request_input()
 
 main()
