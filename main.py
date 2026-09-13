@@ -23,16 +23,6 @@ def set_board():
 		board.append(" ")
 		i += 1
 
-	# refactor lines - could be looped
-	global top_line
-	global mid_line
-	global bot_line
-	global separator
-
-	top_line = f" {board[0]} |  {board[1]}  | {board[2]} "
-	mid_line = f" {board[3]} |  {board[4]}  | {board[5]} "
-	bot_line = f" {board[6]} |  {board[7]}  | {board[8]} "
-
 def print_board():
 	separator = "---|-----|---"
 
@@ -43,14 +33,6 @@ def print_board():
 			print(separator)
 		i += 3
 
-	"""
-	print(top_line)
-	print(separator)
-	print(mid_line)
-	print(separator)
-	print(bot_line)
-	"""
-
 def set_options():
 	global option
 	option = []
@@ -60,13 +42,7 @@ def set_options():
 		i += 1
 
 def request_input():
-
 	global board
-	
-	global top_line
-	global mid_line
-	global bot_line 
-
 	global option
 
 	print(f"Current player: {current_player}")
@@ -88,10 +64,6 @@ def request_input():
 				break
 		else:
 			print("Invalid number. Please enter a number 1-9.")
-
-	top_line = f" {board[0]} |  {board[1]}  | {board[2]} "
-	mid_line = f" {board[3]} |  {board[4]}  | {board[5]} "
-	bot_line = f" {board[6]} |  {board[7]}  | {board[8]} "
 
 def show_scoreboard():
 	print("Current Score")
