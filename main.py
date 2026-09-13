@@ -51,8 +51,13 @@ def request_input():
 	print(f" {option[6]}   {option[7]}   {option[8]}")
 
 	while True:
-		selection = input("Enter a number 1-9: ")
-		selection = int(selection) - 1
+		while True:
+			selection = input("Enter a number 1-9: ")
+			try:
+				selection = int(selection) - 1
+				break
+			except ValueError:
+				print("Invalid input. Please enter a number 1-9.")
 
 		if 0 <= selection <= 8:
 			if (board[selection] == playerX) or (board[selection] == playerO):
@@ -62,7 +67,7 @@ def request_input():
 				option[selection] = "  "
 				break
 		else:
-			print("Invalid number. Please enter a number 1-9.")
+			print("Invalid input. Please enter a number 1-9.")
 
 def show_scoreboard():
 	print("Current Score")
