@@ -32,12 +32,17 @@ def print_board():
 			print(separator)
 		i += 3
 
-def set_options():
-	global option
-	option = []
-	i = 1
-	while i < 10:
-		option.append(f"{i}.")
+def print_options():
+	options = []
+	i = 0
+	while i < 9:
+		if board[i] == " ":
+			options.append(f"{i + 1}. ")
+		else:
+			options.append("   ")
+		if len(options) == 3:
+			print(f" {options[0]}  {options[1]}  {options[2]}")
+			options = []
 		i += 1
 
 def request_input():
@@ -46,9 +51,7 @@ def request_input():
 
 	print(f"Current player: {current_player}")
 	print("Make selection:")
-	print(f" {option[0]}   {option[1]}   {option[2]}")
-	print(f" {option[3]}   {option[4]}   {option[5]}")
-	print(f" {option[6]}   {option[7]}   {option[8]}")
+	print_options()
 
 	while True:
 		while True:
@@ -64,7 +67,6 @@ def request_input():
 				print("Invalid selection. Space is already occupied.")
 			else:
 				board[selection] = current_player
-				option[selection] = "  "
 				break
 		else:
 			print("Invalid input. Please enter a number 1-9.")
@@ -88,7 +90,6 @@ def play_again():
 		choice = input("Play again? y/n: ")
 		if choice == "y":
 			set_board()
-			set_options()
 			break
 		elif choice == "n":
 			sys.exit()
@@ -129,7 +130,6 @@ def detect_draw():
 def main():
 	while True:
 		set_board()
-		set_options()
 
 		while True:
 			print_board()
