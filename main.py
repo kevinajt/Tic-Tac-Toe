@@ -47,7 +47,6 @@ def print_options():
 
 def request_input():
 	global board
-	global option
 
 	print(f"Current player: {current_player}")
 	print("Make selection:")
